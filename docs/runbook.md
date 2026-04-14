@@ -11,6 +11,8 @@
 - Run via `docker compose up --build`
 
 ## Monitoring
+- Open `/` for the interactive application
 - Use `/health` for availability
+- Use `/bootstrap` for client-side initialization data
 - Use `/project` for version and metadata checks
 - Extend API logging and request tracing for production usage

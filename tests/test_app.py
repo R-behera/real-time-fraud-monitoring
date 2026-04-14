@@ -13,6 +13,20 @@ def test_health():
     assert response.json()["status"] == "ok"
 
 
+def test_index_page():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert "text/html" in response.headers["content-type"]
+
+
+def test_bootstrap():
+    response = client.get("/bootstrap")
+    assert response.status_code == 200
+    payload = response.json()
+    assert "project" in payload
+    assert "sample_features" in payload
+
+
 def test_project_metadata():
     response = client.get("/project")
     assert response.status_code == 200
