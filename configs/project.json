@@ -9,7 +9,8 @@
     "streaming",
     "risk"
   ],
-  "accent": "#ff6b35",
+  "accent": "#c8c32c",
+  "secondary_accent": "#2ca975",
   "dashboard_metrics": [
     {
       "label": "Model Lift",
@@ -45,5 +46,52 @@
     "The primary value proposition is: Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.",
     "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
     "Typical stakeholders include analytics, operations, product, and leadership teams working on fraud, streaming, risk."
+  ],
+  "app_archetype": "watchtower",
+  "ui_profile": {
+    "layout": "stack",
+    "surface": "ink",
+    "font_stack": "\"Manrope\", \"Segoe UI\", sans-serif",
+    "radius": 28,
+    "shadow": 68,
+    "eyebrow_style": "outline",
+    "module_columns": 3,
+    "hero_align": "left",
+    "headline_mode": "compact"
+  },
+  "app_modules": [
+    {
+      "label": "Signal 01",
+      "title": "Incident Prioritizer",
+      "description": "Simulate how incoming events are scored before they hit an operator queue.",
+      "endpoint": "/score",
+      "input_mode": "json",
+      "cta": "Prioritize",
+      "prefill": "{\n  \"features\": {\n    \"engagement_score\": 42,\n    \"tenure_days\": 90,\n    \"payment_miss_count\": 0,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": false\n  }\n}",
+      "hint": "Risk band and top signals will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 02",
+      "title": "Alert Delta Review",
+      "description": "Compare current operating metrics with a baseline to explain what changed.",
+      "endpoint": "/analyze",
+      "input_mode": "json",
+      "cta": "Compare Signals",
+      "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 15.0,\n    \"activation\": 22.0,\n    \"retention\": 38.0,\n    \"revenue\": 52.0\n  },\n  \"baseline\": {\n    \"acquisition\": 13.8,\n    \"activation\": 20.24,\n    \"retention\": 34.96,\n    \"revenue\": 47.84\n  }\n}",
+      "hint": "Operational movement summary will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Signal 03",
+      "title": "Triage Playbook",
+      "description": "Generate an action-oriented response plan for the next incident handling step.",
+      "endpoint": "/recommend",
+      "input_mode": "json",
+      "cta": "Build Playbook",
+      "prefill": "{\n  \"prompt\": \"Recommend the next best action for Real-Time Fraud Monitoring.\",\n  \"features\": {\n    \"engagement_score\": 42,\n    \"tenure_days\": 90,\n    \"payment_miss_count\": 0,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": false\n  },\n  \"metrics\": {\n    \"acquisition\": 15.0,\n    \"activation\": 22.0,\n    \"retention\": 38.0,\n    \"revenue\": 52.0\n  }\n}",
+      "hint": "Suggested next actions and rationale will appear here.",
+      "span": "wide"
+    }
   ]
 }

@@ -53,3 +53,36 @@ def query_payload(config: dict, query: str) -> dict:
     matches = [passage for _, passage in scored[:3]]
     answer = matches[0] if matches else "No grounded context found."
     return {"project_type": config["project_type"], "answer": answer, "contexts": matches}
+
+
+def recommend_payload(config: dict, prompt: str, features: dict | None = None, metrics: dict | None = None) -> dict:
+    features = features or {}
+    metrics = metrics or {}
+    score = score_payload(config, features) if features else {"score": 0.0, "band": "low", "top_signals": []}
+    analysis = analyze_payload(config, metrics, {}) if metrics else {"summary": "No metrics supplied.", "deltas": {}}
+    ordered_metrics = sorted(metrics.items(), key=lambda item: abs(float(item[1])), reverse=True)
+    top_metric = ordered_metrics[0][0] if ordered_metrics else config["dashboard_metrics"][0]["label"]
+    actions = [
+        {
+            "action": f"Review the workflow around {top_metric}.",
+            "owner": "analytics",
+            "reason": analysis["summary"],
+        },
+        {
+            "action": f"Inspect the leading signal from the {config['project_type']} scoring pass.",
+            "owner": "operations",
+            "reason": f"Current band is {score['band']} with score {score['score']}.",
+        },
+        {
+            "action": f"Share an execution update with {config['domain']} stakeholders.",
+            "owner": "product",
+            "reason": prompt or "Prompt not supplied.",
+        },
+    ]
+    return {
+        "project_type": config["project_type"],
+        "prompt": prompt,
+        "actions": actions,
+        "score_snapshot": score,
+        "analysis_snapshot": analysis,
+    }

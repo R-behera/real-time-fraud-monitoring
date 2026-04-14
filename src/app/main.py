@@ -30,6 +30,12 @@ class QueryRequest(BaseModel):
     query: str
 
 
+class RecommendRequest(BaseModel):
+    prompt: str = ""
+    features: dict[str, Any] = Field(default_factory=dict)
+    metrics: dict[str, float] = Field(default_factory=dict)
+
+
 @app.get("/", include_in_schema=False)
 def index() -> FileResponse:
     return FileResponse(WEB_DIR / "index.html")
@@ -66,6 +72,9 @@ def bootstrap() -> dict[str, Any]:
         "sample_query": "What is the top priority recommendation?",
         "knowledge_base": CONFIG["knowledge_base"],
         "dashboard_metrics": CONFIG["dashboard_metrics"],
+        "app_archetype": CONFIG["app_archetype"],
+        "ui_profile": CONFIG["ui_profile"],
+        "app_modules": CONFIG["app_modules"],
     }
 
 
@@ -93,3 +102,10 @@ def analyze(request: AnalyzeRequest) -> dict[str, Any]:
 @app.post("/query")
 def query(request: QueryRequest) -> dict[str, Any]:
     return query_payload(CONFIG, request.query)
+
+
+@app.post("/recommend")
+def recommend(request: RecommendRequest) -> dict[str, Any]:
+    from src.app.engine import recommend_payload
+
+    return recommend_payload(CONFIG, request.prompt, request.features, request.metrics)

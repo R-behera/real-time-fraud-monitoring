@@ -32,6 +32,7 @@ Open `http://localhost:8000/` to use the interactive application.
 - `POST /score`
 - `POST /analyze`
 - `POST /query`
+- `POST /recommend`
 
 ## Structure
 ```text
