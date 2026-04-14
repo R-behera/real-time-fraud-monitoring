@@ -1,0 +1,15 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "real-time-fraud-monitoring"
+version = "0.1.0"
+description = "Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries."
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

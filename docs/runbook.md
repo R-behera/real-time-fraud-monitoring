@@ -1,18 +1,16 @@
+
 # Runbook
 
+## Local Run
+- Install dependencies with `pip install -r requirements.txt`
+- Seed mock outputs with `python scripts/bootstrap_data.py`
+- Start the API with `uvicorn src.app.main:app --reload`
+
 ## Deployment
-
-1. Install dependencies from `requirements.txt`.
-2. Run training with `python -m src.training.train`.
-3. Start API with uvicorn.
-
-## Rollback
-
-- Stop API.
-- Restore previous artifact from model registry.
-- Restart and verify /health.
+- Build the image with `docker build -t real-time-fraud-monitoring:latest .`
+- Run via `docker compose up --build`
 
 ## Monitoring
-
-- Monitor `/metrics` endpoint.
-- Run drift checks on daily windows.
+- Use `/health` for availability
+- Use `/project` for version and metadata checks
+- Extend API logging and request tracing for production usage

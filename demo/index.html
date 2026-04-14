@@ -1,0 +1,190 @@
+
+        <!doctype html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Real-Time Fraud Monitoring</title>
+          <style>
+            :root {
+              --accent: #ff6b35;
+              --ink: #102033;
+              --muted: #5f6b7a;
+              --card: rgba(255,255,255,0.88);
+              --bg-1: #f7f8fb;
+              --bg-2: #eef3ff;
+            }
+            * { box-sizing: border-box; }
+            body {
+              margin: 0;
+              font-family: "Avenir Next", "Segoe UI", sans-serif;
+              color: var(--ink);
+              background:
+                radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 16%, white), transparent 38%),
+                linear-gradient(145deg, var(--bg-1), var(--bg-2));
+            }
+            main {
+              max-width: 1180px;
+              margin: 0 auto;
+              padding: 48px;
+            }
+            .hero {
+              display: grid;
+              grid-template-columns: 1.45fr 1fr;
+              gap: 28px;
+              align-items: stretch;
+            }
+            .panel {
+              background: var(--card);
+              border: 1px solid rgba(16, 32, 51, 0.08);
+              border-radius: 28px;
+              padding: 28px;
+              box-shadow: 0 24px 70px rgba(16, 32, 51, 0.08);
+            }
+            .eyebrow {
+              display: inline-flex;
+              padding: 8px 12px;
+              border-radius: 999px;
+              background: color-mix(in srgb, var(--accent) 18%, white);
+              color: var(--accent);
+              font-weight: 700;
+              letter-spacing: 0.04em;
+              text-transform: uppercase;
+              font-size: 12px;
+            }
+            h1 {
+              font-size: 48px;
+              line-height: 1.03;
+              margin: 16px 0 18px;
+            }
+            p {
+              color: var(--muted);
+              font-size: 18px;
+              line-height: 1.6;
+              margin: 0 0 18px;
+            }
+            ul {
+              margin: 18px 0 0;
+              padding-left: 18px;
+              color: var(--ink);
+            }
+            .cards {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 18px;
+              margin-top: 28px;
+            }
+            .card {
+              background: white;
+              border-radius: 22px;
+              padding: 20px;
+              border: 1px solid rgba(16, 32, 51, 0.08);
+            }
+            .card span, .meta span {
+              display: block;
+              color: var(--muted);
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+            }
+            .card strong {
+              display: block;
+              font-size: 30px;
+              margin: 10px 0 8px;
+            }
+            .card em {
+              color: var(--accent);
+              font-style: normal;
+              font-weight: 700;
+            }
+            .visual {
+              min-height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            .ring {
+              width: 210px;
+              height: 210px;
+              margin: 12px auto 26px;
+              border-radius: 50%;
+              background:
+                radial-gradient(circle closest-side, white 69%, transparent 70%),
+                conic-gradient(var(--accent) 0 72%, rgba(16, 32, 51, 0.09) 72% 100%);
+              display: grid;
+              place-items: center;
+              box-shadow: inset 0 0 0 1px rgba(16, 32, 51, 0.05);
+            }
+            .ring strong {
+              font-size: 38px;
+            }
+            .meta {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 14px;
+            }
+            .meta article {
+              background: white;
+              border-radius: 18px;
+              padding: 16px;
+            }
+            .tag-list {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 10px;
+              list-style: none;
+              padding: 0;
+              margin: 20px 0 0;
+            }
+            .tag-list li {
+              padding: 8px 12px;
+              border-radius: 999px;
+              background: rgba(16, 32, 51, 0.06);
+              font-size: 14px;
+            }
+            .footer {
+              margin-top: 28px;
+              display: flex;
+              justify-content: space-between;
+              color: var(--muted);
+              font-size: 14px;
+            }
+          </style>
+        </head>
+        <body>
+          <main>
+            <section class="hero">
+              <div class="panel">
+                <span class="eyebrow">Fintech</span>
+                <h1>Real-Time Fraud Monitoring</h1>
+                <p>Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.</p>
+                <ul>
+                  <li>Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.</li><li>Domain: Fintech</li><li>Project Type: ML</li><li>Includes API scaffold, docs, CI, Docker, and demo assets.</li>
+                </ul>
+                <div class="cards">
+                  <article class='card'><span>Model Lift</span><strong>60%</strong><em>+6.4%</em></article>
+<article class='card'><span>Serving P95</span><strong>90ms</strong><em>-12ms</em></article>
+<article class='card'><span>Data Freshness</span><strong>4h</strong><em>steady</em></article>
+                </div>
+              </div>
+              <div class="panel visual">
+                <div>
+                  <span class="eyebrow">Portfolio Demo</span>
+                  <div class="ring"><strong>ML</strong></div>
+                </div>
+                <div class="meta">
+                  <article><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article><span>Interface</span><strong>FastAPI</strong></article>
+                  <article><span>Testing</span><strong>Pytest</strong></article>
+                  <article><span>Docs</span><strong>Architecture + Runbook</strong></article>
+                </div>
+                <ul class="tag-list"><li>fraud</li><li>streaming</li><li>risk</li></ul>
+              </div>
+            </section>
+            <div class="footer">
+              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>real-time-fraud-monitoring</span>
+            </div>
+          </main>
+        </body>
+        </html>

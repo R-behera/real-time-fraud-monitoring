@@ -1,0 +1,49 @@
+{
+  "slug": "real-time-fraud-monitoring",
+  "title": "Real-Time Fraud Monitoring",
+  "project_type": "ml",
+  "domain": "Fintech",
+  "summary": "Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.",
+  "tags": [
+    "fraud",
+    "streaming",
+    "risk"
+  ],
+  "accent": "#ff6b35",
+  "dashboard_metrics": [
+    {
+      "label": "Model Lift",
+      "value": "60%",
+      "delta": "+6.4%"
+    },
+    {
+      "label": "Serving P95",
+      "value": "90ms",
+      "delta": "-12ms"
+    },
+    {
+      "label": "Data Freshness",
+      "value": "4h",
+      "delta": "steady"
+    }
+  ],
+  "sample_features": {
+    "engagement_score": 42,
+    "tenure_days": 90,
+    "payment_miss_count": 0,
+    "segment": "enterprise",
+    "priority_flag": false
+  },
+  "sample_metrics": {
+    "acquisition": 15.0,
+    "activation": 22.0,
+    "retention": 38.0,
+    "revenue": 52.0
+  },
+  "knowledge_base": [
+    "Real-Time Fraud Monitoring is positioned as a Fintech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on fraud, streaming, risk."
+  ]
+}
