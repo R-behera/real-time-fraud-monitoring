@@ -1,114 +1,29 @@
-
-        <!doctype html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Real-Time Fraud Monitoring</title>
-          <link rel="stylesheet" href="./styles.css">
-        </head>
-        <body class="surface-ink">
-          <div class="page layout-stack eyebrow-outline headline-compact modules-3 hero-align-left">
-            <section class="hero">
-              <div class="panel hero-copy">
-                <span class="eyebrow" data-health>Signal Watchtower</span>
-                <h1 id="project-title">Real-Time Fraud Monitoring</h1>
-                <p id="project-summary" class="lead">Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.</p>
-                <ul id="project-tags" class="tag-list">
-                  <li>fraud</li><li>streaming</li><li>risk</li>
-                </ul>
-              </div>
-              <div class="panel hero-side">
-                <div class="metric-grid">
-                  <article class='card'><span>Model Lift</span><strong>60%</strong><em>+6.4%</em></article>
-<article class='card'><span>Serving P95</span><strong>90ms</strong><em>-12ms</em></article>
-<article class='card'><span>Data Freshness</span><strong>4h</strong><em>steady</em></article>
-                </div>
-                <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>ML</strong></article><article class='mini-card'><span>Domain</span><strong>Fintech</strong></article><article class='mini-card'><span>Application</span><strong>Signal Watchtower</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
-                </div>
-              </div>
-            </section>
-            <section class="app-grid">
-              <article class="panel module js-module span-normal">
-          <div class="module-header">
-            <span>Signal 01</span>
-            <h2>Incident Prioritizer</h2>
-            <p>Simulate how incoming events are scored before they hit an operator queue.</p>
-          </div>
-          <textarea class="js-input">{
-  &quot;features&quot;: {
-    &quot;engagement_score&quot;: 42,
-    &quot;tenure_days&quot;: 90,
-    &quot;payment_miss_count&quot;: 0,
-    &quot;segment&quot;: &quot;enterprise&quot;,
-    &quot;priority_flag&quot;: false
-  }
-}</textarea>
-          <div class="button-row">
-            <button class="js-run" data-endpoint="/score" data-input-mode="json">Prioritize</button>
-          </div>
-          <pre class="js-output">Risk band and top signals will appear here.</pre>
-        </article>
-<article class="panel module js-module span-normal">
-          <div class="module-header">
-            <span>Signal 02</span>
-            <h2>Alert Delta Review</h2>
-            <p>Compare current operating metrics with a baseline to explain what changed.</p>
-          </div>
-          <textarea class="js-input">{
-  &quot;metrics&quot;: {
-    &quot;acquisition&quot;: 15.0,
-    &quot;activation&quot;: 22.0,
-    &quot;retention&quot;: 38.0,
-    &quot;revenue&quot;: 52.0
-  },
-  &quot;baseline&quot;: {
-    &quot;acquisition&quot;: 13.8,
-    &quot;activation&quot;: 20.24,
-    &quot;retention&quot;: 34.96,
-    &quot;revenue&quot;: 47.84
-  }
-}</textarea>
-          <div class="button-row">
-            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Compare Signals</button>
-          </div>
-          <pre class="js-output">Operational movement summary will appear here.</pre>
-        </article>
-<article class="panel module js-module span-wide">
-          <div class="module-header">
-            <span>Signal 03</span>
-            <h2>Triage Playbook</h2>
-            <p>Generate an action-oriented response plan for the next incident handling step.</p>
-          </div>
-          <textarea class="js-input">{
-  &quot;prompt&quot;: &quot;Recommend the next best action for Real-Time Fraud Monitoring.&quot;,
-  &quot;features&quot;: {
-    &quot;engagement_score&quot;: 42,
-    &quot;tenure_days&quot;: 90,
-    &quot;payment_miss_count&quot;: 0,
-    &quot;segment&quot;: &quot;enterprise&quot;,
-    &quot;priority_flag&quot;: false
-  },
-  &quot;metrics&quot;: {
-    &quot;acquisition&quot;: 15.0,
-    &quot;activation&quot;: 22.0,
-    &quot;retention&quot;: 38.0,
-    &quot;revenue&quot;: 52.0
-  }
-}</textarea>
-          <div class="button-row">
-            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Build Playbook</button>
-          </div>
-          <pre class="js-output">Suggested next actions and rationale will appear here.</pre>
-        </article>
-            </section>
-            <footer class="footer">
-              <span>Fintech • ML • Signal Watchtower</span>
-              <span>real-time-fraud-monitoring</span>
-            </footer>
-          </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "real-time-fraud-monitoring", "title": "Real-Time Fraud Monitoring", "project_type": "ml", "domain": "Fintech", "summary": "Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.", "tags": ["fraud", "streaming", "risk"]}, "app_archetype": "watchtower", "ui_profile": {"layout": "stack", "surface": "ink", "font_stack": "\"Manrope\", \"Segoe UI\", sans-serif", "radius": 28, "shadow": 68, "eyebrow_style": "outline", "module_columns": 3, "hero_align": "left", "headline_mode": "compact"}, "app_modules": [{"label": "Signal 01", "title": "Incident Prioritizer", "description": "Simulate how incoming events are scored before they hit an operator queue.", "endpoint": "/score", "input_mode": "json", "cta": "Prioritize", "prefill": "{\n  \"features\": {\n    \"engagement_score\": 42,\n    \"tenure_days\": 90,\n    \"payment_miss_count\": 0,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": false\n  }\n}", "hint": "Risk band and top signals will appear here.", "span": "normal"}, {"label": "Signal 02", "title": "Alert Delta Review", "description": "Compare current operating metrics with a baseline to explain what changed.", "endpoint": "/analyze", "input_mode": "json", "cta": "Compare Signals", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 15.0,\n    \"activation\": 22.0,\n    \"retention\": 38.0,\n    \"revenue\": 52.0\n  },\n  \"baseline\": {\n    \"acquisition\": 13.8,\n    \"activation\": 20.24,\n    \"retention\": 34.96,\n    \"revenue\": 47.84\n  }\n}", "hint": "Operational movement summary will appear here.", "span": "normal"}, {"label": "Signal 03", "title": "Triage Playbook", "description": "Generate an action-oriented response plan for the next incident handling step.", "endpoint": "/recommend", "input_mode": "json", "cta": "Build Playbook", "prefill": "{\n  \"prompt\": \"Recommend the next best action for Real-Time Fraud Monitoring.\",\n  \"features\": {\n    \"engagement_score\": 42,\n    \"tenure_days\": 90,\n    \"payment_miss_count\": 0,\n    \"segment\": \"enterprise\",\n    \"priority_flag\": false\n  },\n  \"metrics\": {\n    \"acquisition\": 15.0,\n    \"activation\": 22.0,\n    \"retention\": 38.0,\n    \"revenue\": 52.0\n  }\n}", "hint": "Suggested next actions and rationale will appear here.", "span": "wide"}], "sample_features": {"engagement_score": 42, "tenure_days": 90, "payment_miss_count": 0, "segment": "enterprise", "priority_flag": false}, "sample_metrics": {"acquisition": 15.0, "activation": 22.0, "retention": 38.0, "revenue": 52.0}, "knowledge_base": ["Real-Time Fraud Monitoring is positioned as a Fintech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Detect risky transactions in near real time with a production scoring API, drift checks, and analyst-friendly triage summaries.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on fraud, streaming, risk."], "dashboard_metrics": [{"label": "Model Lift", "value": "60%", "delta": "+6.4%"}, {"label": "Serving P95", "value": "90ms", "delta": "-12ms"}, {"label": "Data Freshness", "value": "4h", "delta": "steady"}]}</script>
-          <script src="./app.js"></script>
-        </body>
-        </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Fraud Monitoring App</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div id="scene" class="app-scene">
+    <header class="shell hero">
+      <div>
+        <span class="eyebrow">Fintech risk intelligence</span>
+        <h1>Real-Time Fraud Monitoring</h1>
+        <p>![Demo Screenshot](demo/screenshot.png)</p>
+      </div>
+      <aside class="status-card">
+        <div class="pill">API connected</div>
+        <div class="pill">fraud analyst</div>
+        <div class="pill">signal-wave</div>
+      </aside>
+    </header>
+    <section id="metrics" class="grid metrics"></section>
+    <section id="signals" class="grid signals"></section>
+  </div>
+  <script>window.PROJECT_MANIFEST = {"slug": "real-time-fraud-monitoring", "title": "Real-Time Fraud Monitoring", "summary": "![Demo Screenshot](demo/screenshot.png)", "domain": "Fintech risk intelligence", "audience": "fraud analyst", "promise": "Reduce risky decisions with explainable signals and monitored workflows.", "hero": ["Production-grade app scaffold with API, CI, tests, Docker, and GitHub Pages landing.", "3D landing surface designed for GitHub Pages and recruiter-friendly storytelling.", "App backend structured for local or container deployment without changing the product narrative."], "kpis": [{"label": "Workflow clarity", "value": "89%", "note": "Operator actions mapped to product stages"}, {"label": "Deployment posture", "value": "API + Docker", "note": "Local and containerized startup paths"}, {"label": "Presentation layer", "value": "3D Pages ready", "note": "Static GitHub landing page included"}], "stages": ["ingest", "validate", "analyze", "decide", "monitor"], "cards": [{"title": "Operator cockpit", "body": "One-screen surface for the fraud analyst to understand what matters first."}, {"title": "API contract", "body": "Structured endpoints for health, manifest, readiness, and showcase data."}, {"title": "Deployment path", "body": "Repository includes Docker, Compose, CI workflow, and a Pages-ready landing surface."}], "scene": "signal-wave", "theme": {"bg": "#08100e", "surface": "#101d1a", "ink": "#ebfff8", "muted": "#8eb5a6", "accent": "#4ce0b3", "accent2": "#8fb8ff"}, "pages_url": "https://r-behera.github.io/real-time-fraud-monitoring/", "api_examples": {"health": {"status": "ok", "project": "real-time-fraud-monitoring"}, "readiness": {"api": "ready", "landing_page": "docs/index.html", "container": "Dockerfile present"}, "signals": [{"name": "Decision coverage", "status": "strong", "detail": "App and landing narrative aligned"}, {"name": "Operator context", "status": "strong", "detail": "Primary user anchored as fraud analyst"}, {"name": "Delivery path", "status": "ready", "detail": "Pages + containerized app scaffold generated"}]}};</script>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

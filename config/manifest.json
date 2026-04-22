@@ -1,0 +1,89 @@
+{
+  "slug": "real-time-fraud-monitoring",
+  "title": "Real-Time Fraud Monitoring",
+  "summary": "![Demo Screenshot](demo/screenshot.png)",
+  "domain": "Fintech risk intelligence",
+  "audience": "fraud analyst",
+  "promise": "Reduce risky decisions with explainable signals and monitored workflows.",
+  "hero": [
+    "Production-grade app scaffold with API, CI, tests, Docker, and GitHub Pages landing.",
+    "3D landing surface designed for GitHub Pages and recruiter-friendly storytelling.",
+    "App backend structured for local or container deployment without changing the product narrative."
+  ],
+  "kpis": [
+    {
+      "label": "Workflow clarity",
+      "value": "89%",
+      "note": "Operator actions mapped to product stages"
+    },
+    {
+      "label": "Deployment posture",
+      "value": "API + Docker",
+      "note": "Local and containerized startup paths"
+    },
+    {
+      "label": "Presentation layer",
+      "value": "3D Pages ready",
+      "note": "Static GitHub landing page included"
+    }
+  ],
+  "stages": [
+    "ingest",
+    "validate",
+    "analyze",
+    "decide",
+    "monitor"
+  ],
+  "cards": [
+    {
+      "title": "Operator cockpit",
+      "body": "One-screen surface for the fraud analyst to understand what matters first."
+    },
+    {
+      "title": "API contract",
+      "body": "Structured endpoints for health, manifest, readiness, and showcase data."
+    },
+    {
+      "title": "Deployment path",
+      "body": "Repository includes Docker, Compose, CI workflow, and a Pages-ready landing surface."
+    }
+  ],
+  "scene": "signal-wave",
+  "theme": {
+    "bg": "#08100e",
+    "surface": "#101d1a",
+    "ink": "#ebfff8",
+    "muted": "#8eb5a6",
+    "accent": "#4ce0b3",
+    "accent2": "#8fb8ff"
+  },
+  "pages_url": "https://r-behera.github.io/real-time-fraud-monitoring/",
+  "api_examples": {
+    "health": {
+      "status": "ok",
+      "project": "real-time-fraud-monitoring"
+    },
+    "readiness": {
+      "api": "ready",
+      "landing_page": "docs/index.html",
+      "container": "Dockerfile present"
+    },
+    "signals": [
+      {
+        "name": "Decision coverage",
+        "status": "strong",
+        "detail": "App and landing narrative aligned"
+      },
+      {
+        "name": "Operator context",
+        "status": "strong",
+        "detail": "Primary user anchored as fraud analyst"
+      },
+      {
+        "name": "Delivery path",
+        "status": "ready",
+        "detail": "Pages + containerized app scaffold generated"
+      }
+    ]
+  }
+}

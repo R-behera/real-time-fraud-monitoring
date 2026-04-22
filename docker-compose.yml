@@ -1,9 +1,5 @@
-
 services:
-  api:
+  app:
     build: .
-    image: real-time-fraud-monitoring:latest
     ports:
       - "8000:8000"
-    env_file:
-      - .env.example

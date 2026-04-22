@@ -1,59 +1,9 @@
-
-const pretty = (value) => JSON.stringify(value, null, 2);
-
-async function postJson(endpoint, body, output) {
-  output.textContent = "Loading...";
-  try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    const payload = await response.json();
-    output.textContent = pretty(payload);
-  } catch (error) {
-    output.textContent = pretty({ error: String(error) });
-  }
-}
-
-function buildPayload(endpoint, inputMode, rawValue) {
-  if (inputMode === "json") {
-    return JSON.parse(rawValue);
-  }
-  if (endpoint === "/query") {
-    return { query: rawValue };
-  }
-  if (endpoint === "/recommend") {
-    return { prompt: rawValue };
-  }
-  return { value: rawValue };
-}
-
-document.querySelectorAll(".js-module").forEach((moduleNode) => {
-  const button = moduleNode.querySelector(".js-run");
-  const output = moduleNode.querySelector(".js-output");
-  const input = moduleNode.querySelector(".js-input");
-  button.addEventListener("click", async () => {
-    try {
-      const payload = buildPayload(button.dataset.endpoint, button.dataset.inputMode, input.value);
-      await postJson(button.dataset.endpoint, payload, output);
-    } catch (error) {
-      output.textContent = pretty({ error: String(error) });
-    }
-  });
-});
-
-fetch("/bootstrap")
-  .then((response) => response.json())
-  .then((payload) => {
-    const badge = document.querySelector("[data-health]");
-    if (badge) {
-      badge.textContent = `${payload.project.title} ready`;
-    }
-  })
-  .catch(() => {
-    const badge = document.querySelector("[data-health]");
-    if (badge) {
-      badge.textContent = "Application ready";
-    }
-  });
+const root = document.getElementById('scene');
+const manifest = window.PROJECT_MANIFEST;
+const metricMount = document.getElementById('metrics');
+const signalMount = document.getElementById('signals');
+function metricCard(item){return `<article class="panel"><strong>${item.value}</strong><span>${item.label}</span><p>${item.note}</p></article>`;}
+function signalCard(item){return `<article class="panel tilt"><h3>${item.name}</h3><div class="badge ${item.status.toLowerCase()}">${item.status}</div><p>${item.detail}</p></article>`;}
+metricMount.innerHTML = manifest.kpis.map(metricCard).join('');
+fetch('/api/signals').then(r=>r.json()).then(data=>{signalMount.innerHTML = data.map(signalCard).join('');});
+root.addEventListener('pointermove', (event)=>{const x=(event.clientX/window.innerWidth)-0.5; const y=(event.clientY/window.innerHeight)-0.5; root.style.setProperty('--rx', `${y*-10}deg`); root.style.setProperty('--ry', `${x*12}deg`);});
